@@ -44,9 +44,7 @@ class Country extends Component {
     return (
       <div>
         <Row gutter={8}>
-          <Col xs={24} sm={24} md={8} lg={6} xl={6} style={{
-            margin: '5px 0'
-          }}>
+          <Col className="country-card" xs={24} sm={24} md={8} lg={6} xl={6}>
             <h4>Select Country</h4>
             <Select
               loading={this.state.loading}

@@ -1,8 +1,7 @@
 import React, {Component} from 'react'
 import CardForm from './PaymentForm/CardForm'
 import CountryAndPayment from './PaymentForm/CountryAndPayment'
-import { Layout } from 'antd'
-import ContentHeader from './../common/ContentHeader'
+import { Layout, Card } from 'antd'
 import {connect} from 'react-redux'
 const { Content } = Layout
 
@@ -12,14 +11,18 @@ class PaymentForm extends Component {
     return (
       <div>
         <Layout>
-          <Content style={{ padding: '0 50px', marginTop: 0 }}>
-            <ContentHeader title="Payment Method"/>
-            <CountryAndPayment/>
+          <Content style={{ padding: '0 50px', marginTop: 20, marginBottom: 20 }}>
+            <Card 
+              title="Choose Payment Method">
+              <CountryAndPayment/>
+            </Card>
+            
           </Content>
           {paymentMethod !== "" ? 
-          <Content style={{ padding: '0 50px', marginTop: 0 }}>
-            <ContentHeader title="Credit Card"/>
-            <CardForm/>
+          <Content style={{ padding: '0 50px', marginBottom: 20 }}>
+            <Card title="Credit Card">
+              <CardForm/>
+            </Card>
           </Content>
           : null}
           

@@ -33,19 +33,23 @@ export const Paymentwall_API_URL = 'https://api.paymentwall.com/api/payment-syst
 export const planData = [
   {
     title: 'Basic',
-    price: 4.49
+		price: 4.49,
+		css_class: 'plan-basic'
   },
   {
     title: 'Regular',
-    price: 9.99
+		price: 9.99,
+		css_class: 'plan-regular'
   },
   {
     title: 'Premium',
-    price: 19.99
+		price: 19.99,
+		css_class: 'plan-premium'
   },
   {
     title: 'Enterprise',
-    price: 29.99
+		price: 29.99,
+		css_class: 'plan-enterprise'
   }
 ];
 

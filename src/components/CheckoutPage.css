@@ -5,3 +5,60 @@
   overflow: hidden;
   /* padding: 5px; */
 }
+.heading-text {
+  text-align: center;
+  font-size: 30px;
+  font-family: monospace;
+  text-transform: uppercase;
+  font-weight: 700;
+  background: rgb(113, 46, 74);
+  color: rgb(255, 255, 255);
+  line-height: 2;
+  padding: 6px 6px;
+}
+.country-card {
+  margin: 5px 0;
+}
+.ant-card-head-title {
+  font-size: 22px;
+}
+/** Extra small devices (portrait phones, less than 576px) **/
+@media (max-width: 575.98px) { 
+  .ant-layout-content {
+    padding: 10px!important;
+    margin: 0!important;
+  }
+  .country-card {
+    margin: 0 0 16px 0;
+  }
+  .ant-card-body {
+    padding: 10px 20px!important;
+  }
+  .heading-text {
+    line-height: 1;
+  }
+  .ant-card-head-title {
+    font-size: initial;
+  }
+}
+/** Small devices (landscape phones, 576px and up) **/
+@media (min-width: 576px) {
+  .country-card {
+    margin: 0 0 16px 0;
+  }
+}
+
+/** Medium devices (tablets, 768px and up) **/
+@media (min-width: 768px) { 
+
+} 
+
+/** Large devices (desktops, 992px and up) **/
+@media (min-width: 992px) { 
+
+}
+
+/** Extra large devices (large desktops, 1200px and up) **/
+@media (min-width: 1200px) { 
+
+}

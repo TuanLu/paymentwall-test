@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import { Layout } from 'antd'
-import ContentHeader from './../common/ContentHeader'
+import { Layout, Card } from 'antd'
 import Plans from './AmountForm/Plans'
 const { Content } = Layout
 
@@ -10,10 +9,12 @@ class AmountForm extends Component {
       <div>
         <Layout>
           <Content style={{ padding: '0 50px', marginTop: 20 }}>
-            <ContentHeader title="Choose Your Plan"/>
-            <Plans/>
+            <Card title="Choose Your Plan">
+              <Plans/>
+            </Card>
           </Content>
         </Layout>
+        
       </div>
     )
   }

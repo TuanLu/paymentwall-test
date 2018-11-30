@@ -17,7 +17,8 @@ class PaymentMethods extends Component {
               dispatch(choosePaymentMethod(item.name));
             }}>
               <Card
-                className={paymentMethod === item.name ? "selected-payment" : ""}>
+                type="inner"
+                className={paymentMethod === item.name ? "selected-payment card-payment" : "card-payment"}>
                 <img src={item.img_url}/>
               </Card>
             </List.Item>

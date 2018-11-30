@@ -19,8 +19,9 @@ class Plans extends Component {
               dispatch(choosePlan(item))
             }}>
               <Card
+                type="inner"
                 title={item.title}
-                className={selectedPlan === item.title ? "selected-plan" : ""}>
+                className={`plan-item ${selectedPlan === item.title ? "selected-plan" : ""} ${item.css_class}`}>
                 <span style={{
                   fontSize: 30
                 }}>${item.price}</span>/month

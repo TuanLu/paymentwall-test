@@ -1,9 +1,32 @@
 .ant-card {
   cursor: pointer;
 }
-.selected-plan.ant-card-bordered,
-.ant-card:hover{
-  -webkit-box-shadow: 0px 0px 1px 1px #2196F3;
-  -moz-box-shadow: 0px 0px 1px 1px #2196F3;
-  box-shadow: 0px 0px 1px 1px #2196F3;
+.selected-plan.ant-card-bordered.plan-item,
+.ant-card.plan-item:hover {
+  -webkit-box-shadow: 0px 8px 7px 0px #c1c1c1;
+  -moz-box-shadow: 0px 8px 7px 0px #c1c1c1;
+  box-shadow: 0px 8px 7px 0px #c1c1c1;
+}
+.ant-card-type-inner {
+  position: relative;
+}
+.ant-card-type-inner .ant-card-head {
+  color: #fff;
+}
+.plan-basic.ant-card-type-inner .ant-card-head {
+  background: #9C27B0;
+}
+.plan-regular.ant-card-type-inner .ant-card-head {
+  background: rgb(228, 165, 28);
+}
+.plan-premium.ant-card-type-inner .ant-card-head {
+  background: rgb(10, 8, 19);
+}
+.plan-enterprise.ant-card-type-inner .ant-card-head {
+  background: rgb(24, 102, 204);
+}
+.plan-checked {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
