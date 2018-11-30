@@ -9,6 +9,7 @@
 }
 .ant-card-type-inner {
   position: relative;
+  text-align: center;
 }
 .ant-card-type-inner .ant-card-head {
   color: #fff;

@@ -22,6 +22,12 @@
 .ant-card-head-title {
   font-size: 22px;
 }
+.paymentwall-card-form .ant-drawer-body {
+  padding: 13px;
+}
+.paymentwall-card-form .ant-form-item {
+  margin-bottom: 0;
+}
 /** Extra small devices (portrait phones, less than 576px) **/
 @media (max-width: 575.98px) { 
   .ant-layout-content {

@@ -52,34 +52,34 @@ class CardForm extends React.Component {
     let {plan} = this.props;
 
     const formItemLayout = {
-      labelCol: {
-        xs: { span: 24 },
-        sm: { span: 8 },
-      },
-      wrapperCol: {
-        xs: { span: 24 },
-        sm: { span: 16 },
-      },
+      // labelCol: {
+      //   xs: { span: 24 },
+      //   sm: { span: 8 },
+      // },
+      // wrapperCol: {
+      //   xs: { span: 24 },
+      //   sm: { span: 16 },
+      // },
     };
     const tailFormItemLayout = {
-      wrapperCol: {
-        xs: {
-          span: 24,
-          offset: 8,
-        },
-        sm: {
-          span: 16,
-          offset: 8,
-        },
-        md: {
-          span: 16,
-          offset: 8,
-        }
-      },
+      // wrapperCol: {
+      //   xs: {
+      //     span: 24,
+      //     offset: 8,
+      //   },
+      //   sm: {
+      //     span: 16,
+      //     offset: 8,
+      //   },
+      //   md: {
+      //     span: 16,
+      //     offset: 8,
+      //   }
+      // },
     };
 
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form layout="vertical" onSubmit={this.handleSubmit}>
         <FormItem
           {...formItemLayout}
           label="Card holder name"
@@ -94,7 +94,7 @@ class CardForm extends React.Component {
               message: 'Please enter character only!',
             }],
           })(
-            <Input placeholder={"Enter your name"} />
+            <Input size="large" placeholder={"Enter your name"} />
           )}
         </FormItem>
         <FormItem
@@ -109,7 +109,7 @@ class CardForm extends React.Component {
               validator: this.validateCardNumber,
             }],
           })(
-            <Input placeholder={"Enter card number"} />
+            <Input size="large" placeholder={"Enter card number"} />
           )}
         </FormItem>
         <FormItem
@@ -121,7 +121,7 @@ class CardForm extends React.Component {
               required: true, message: 'Please select exp date!',
             }],
           })(
-            <MonthPicker disabledDate={this.disabledDate} />
+            <MonthPicker style={{width: '100%'}} size="large" disabledDate={this.disabledDate} />
           )}
         </FormItem>
         <FormItem
@@ -137,11 +137,11 @@ class CardForm extends React.Component {
               message: 'Please enter valid cvv number!',
             }],
           })(
-            <Input />
+            <Input size="large" />
           )}
         </FormItem>
         <FormItem {...tailFormItemLayout}>
-          <Button loading={this.state.loading} size="large" type="primary" htmlType="submit">{`Pay $${plan.price} USD`}</Button>
+          <Button block loading={this.state.loading} size="large" type="primary" htmlType="submit">{`Pay $${plan.price} USD`}</Button>
         </FormItem>
       </Form>
     );

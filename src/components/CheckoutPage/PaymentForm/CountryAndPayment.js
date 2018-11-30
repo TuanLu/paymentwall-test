@@ -47,6 +47,7 @@ class Country extends Component {
           <Col className="country-card" xs={24} sm={24} md={8} lg={6} xl={6}>
             <h4>Select Country</h4>
             <Select
+              size="large"
               loading={this.state.loading}
               onChange={this.changeCountry}
               defaultValue={this.state.currentCountry}
