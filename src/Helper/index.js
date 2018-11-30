@@ -28,7 +28,26 @@ export function valid_credit_card(value) {
 	return (nCheck % 10) == 0;
 }
 
-export const Paymentwall_API_URL = 'https://api.paymentwall.com/api/payment-systems/?key=2e6c453c50516ca0fb8598cdfa00793e'
+export const Paymentwall_API_URL = 'https://api.paymentwall.com/api/payment-systems/?key=2e6c453c50516ca0fb8598cdfa00793e';
+
+export const planData = [
+  {
+    title: 'Basic',
+    price: 4.49
+  },
+  {
+    title: 'Regular',
+    price: 9.99
+  },
+  {
+    title: 'Premium',
+    price: 19.99
+  },
+  {
+    title: 'Enterprise',
+    price: 29.99
+  }
+];
 
 const countryList = `[
 	{ "name": "Afghanistan", "code": "AF" },

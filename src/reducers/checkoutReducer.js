@@ -1,8 +1,10 @@
 import actionTypes from "actions/ACTION_TYPES";
 import { cloneDeep } from "lodash";
+import {planData} from 'Helper'
 
 let _designDefault = {
-
+    selectedCountry: 'VN',
+    plan: planData[1]
   },
   cloneState;
 
@@ -15,11 +17,11 @@ export default (state = _designDefault, action) => {
         ...action.defaultProps
       };
       return cloneState;
-    case actionTypes.UPDATE_STATE_DATA:
+    case actionTypes.CHOOSE_PLAN:
       cloneState = cloneDeep(state);
       cloneState = {
         ...cloneState,
-        ...action.updateData
+        plan: action.planData
       };
       return cloneState;
 

@@ -1,5 +1,5 @@
 const actionTypes = {
   START_APP: "START_APP",
-  UPDATE_STATE_DATA: "UPDATE_STATE_DATA",
+  CHOOSE_PLAN: "CHOOSE_PLAN",
 };
 export default actionTypes;

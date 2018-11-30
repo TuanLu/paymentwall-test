@@ -1,39 +1,23 @@
 import React, {Component} from 'react'
 import { Card, List } from 'antd'
+import {connect} from 'react-redux'
+import {choosePlan} from 'actions'
+import {planData} from 'Helper'
 import "./Plans.css"
 
-const data = [
-  {
-    title: 'Basic',
-    price: 4.49
-  },
-  {
-    title: 'Regular',
-    price: 9.99
-  },
-  {
-    title: 'Premium',
-    price: 19.99
-  },
-  {
-    title: 'Enterprise',
-    price: 29.99
-  }
-];
-
 class Plans extends Component {
-  state = {
-    selected: data[1]
-  }
   render() {
-    let selectedPlan = this.state.selected.title;
+    let {dispatch, checkout: {plan}} = this.props;
+    let selectedPlan = plan.title;
     return (
       <div>
         <List
           grid={{ gutter: 8, xs: 1, sm: 2, md: 3, lg: 4, xl: 4, xxl: 3 }}
-          dataSource={data}
+          dataSource={planData}
           renderItem={item => (
-            <List.Item>
+            <List.Item onClick={() => {
+              dispatch(choosePlan(item))
+            }}>
               <Card
                 title={item.title}
                 className={selectedPlan === item.title ? "selected-plan" : ""}>
@@ -49,4 +33,8 @@ class Plans extends Component {
   }
 }
 
-export default Plans
+export default connect((state) => {
+  return {
+    checkout: state.checkout
+  }
+})(Plans)

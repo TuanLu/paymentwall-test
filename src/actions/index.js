@@ -13,3 +13,11 @@ export const updateStateData = updateData => ({
   type: actionTypes.UPDATE_STATE_DATA,
   updateData
 });
+/**
+ *
+ * @param {object} plan
+ */
+export const choosePlan = planData => ({
+  type: actionTypes.CHOOSE_PLAN,
+  planData
+});
