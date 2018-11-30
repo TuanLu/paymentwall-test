@@ -19,7 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build_production": "react-scripts build && rm -rf ../public_html/images ../public_html/static && cp -R build/* ../public_html/ && cd ../public_html/ && ./deploy_client.sh",
+    "build_production": "react-scripts build && cp -R build/* public/",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
