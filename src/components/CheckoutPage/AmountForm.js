@@ -9,7 +9,7 @@ class AmountForm extends Component {
     return (
       <div>
         <Layout>
-          <Content style={{ padding: '0 50px', marginTop: 50 }}>
+          <Content style={{ padding: '0 50px', marginTop: 20 }}>
             <ContentHeader title="Choose Your Plan"/>
             <Plans/>
           </Content>

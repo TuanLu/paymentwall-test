@@ -12,7 +12,7 @@ class Plans extends Component {
     return (
       <div>
         <List
-          grid={{ gutter: 8, xs: 1, sm: 2, md: 3, lg: 4, xl: 4, xxl: 3 }}
+          grid={{ gutter: 8, xs: 1, sm: 2, md: 3, lg: 4, xl: 4, xxl: 4 }}
           dataSource={planData}
           renderItem={item => (
             <List.Item onClick={() => {
