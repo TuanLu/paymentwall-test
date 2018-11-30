@@ -1,5 +1,7 @@
 const actionTypes = {
   START_APP: "START_APP",
   CHOOSE_PLAN: "CHOOSE_PLAN",
+  CHOOSE_PAYMENT_METHOD: "CHOOSE_PAYMENT_METHOD",
+  TO_SUCCESS_PAGE: "TO_SUCCESS_PAGE"
 };
 export default actionTypes;

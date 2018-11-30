@@ -2,21 +2,10 @@ import React, {Component} from 'react'
 import {countryListOptions, Paymentwall_API_URL} from 'Helper'
 import {Select, message, Spin, Row, Col} from 'antd'
 import PaymentMethods from './PaymentMethods'
-
+import {connect} from 'react-redux'
+import {choosePaymentMethod} from 'actions'
 
 const _countryListOptions = countryListOptions();
-
-const formItemLayout = {
-  labelCol: {
-    xs: { span: 24 },
-    sm: { span: 8 },
-  },
-  wrapperCol: {
-    xs: { span: 24 },
-    sm: { span: 16 },
-  },
-};
-
 
 class Country extends Component {
   constructor(props) {
@@ -31,10 +20,12 @@ class Country extends Component {
   async getPaymentMethodsByCountry(code) {
     try {
       this.setState({loading: true});
-      let request = await fetch(Paymentwall_API_URL + `&country_code=${code}`);
+      let rqUrl = !code ? Paymentwall_API_URL : Paymentwall_API_URL + `&country_code=${code}`;
+      let request = await fetch(rqUrl);
       let rsData = await request.json();
       if(rsData.length) {
         this.setState({paymentMethods: rsData, loading: false});
+        this.props.dispatch(choosePaymentMethod(""));
       } else {
         this.setState({loading: false});
       }
@@ -52,7 +43,7 @@ class Country extends Component {
   render() {
     return (
       <div>
-        <Row>
+        <Row gutter={8}>
           <Col xs={24} sm={24} md={8} lg={6} xl={6} style={{
             margin: '5px 0'
           }}>
@@ -61,7 +52,7 @@ class Country extends Component {
               loading={this.state.loading}
               onChange={this.changeCountry}
               defaultValue={this.state.currentCountry}
-              style={{ width: 200 }}
+              style={{ width: '100%' }}
               placeholder="Select a country"
             >
               {_countryListOptions.map((option, index) => {
@@ -79,11 +70,13 @@ class Country extends Component {
             </Spin>
           </Col>
         </Row>
-       
-       
       </div>
     )
   }
 }
 
-export default Country
+export default connect((state) => {
+  return {
+    paymentMethod: state.checkout.paymentMethod
+  }
+})(Country)

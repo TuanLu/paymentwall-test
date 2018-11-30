@@ -1,13 +1,12 @@
 import React, {Component} from 'react'
-import { Card, List, Radio } from 'antd'
+import { Card, List } from 'antd'
+import {connect} from 'react-redux'
+import {choosePaymentMethod} from 'actions'
 import "./PaymentMethods.css"
 
 class PaymentMethods extends Component {
-  state = {
-    selected: {}
-  }
   render() {
-    let selectedMethod = this.state.selected.name;
+    let {dispatch, paymentMethod} = this.props;    
     return (
       <div>
         <List
@@ -15,10 +14,10 @@ class PaymentMethods extends Component {
           dataSource={this.props.paymentMethods}
           renderItem={item => (
             <List.Item onClick={() => {
-              this.setState({selected: item});
+              dispatch(choosePaymentMethod(item.name));
             }}>
               <Card
-                className={selectedMethod === item.name ? "selected-payment" : ""}>
+                className={paymentMethod === item.name ? "selected-payment" : ""}>
                 <img src={item.img_url}/>
               </Card>
             </List.Item>
@@ -29,4 +28,8 @@ class PaymentMethods extends Component {
   }
 }
 
-export default PaymentMethods
+export default connect((state) => {
+  return {
+    paymentMethod: state.checkout.paymentMethod
+  }
+})(PaymentMethods)

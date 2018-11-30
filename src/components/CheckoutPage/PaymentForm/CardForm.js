@@ -2,20 +2,31 @@ import React from 'react'
 import { Form, Input, Button, DatePicker } from 'antd';
 import {valid_credit_card} from 'Helper'
 import moment from 'moment'
+import {connect} from 'react-redux'
+import {toSuccessPage} from 'actions'
 
 const FormItem = Form.Item;
 const { MonthPicker } = DatePicker;
 
 class CardForm extends React.Component {
   state = {
-    confirmDirty: false,
-    autoCompleteResult: [],
+    loading: false,
   };
-
+  checkout() {
+    this.setState({loading: true});
+    let {dispatch} = this.props;
+    this.tempTimeout = setTimeout(() => {
+      this.setState({loading: false});
+      //Dispatch to redirect to success page
+      dispatch(toSuccessPage());
+    }, 2000);
+  }
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
+        //Connect to Payment API
+        this.checkout();
         console.log('Received values of form: ', values);
       }
     });
@@ -33,10 +44,12 @@ class CardForm extends React.Component {
     // Can not select days before today and today
     return current && current < moment().endOf('day');
   }
-
-
+  componentWillUnmount() {
+    clearTimeout(this.tempTimeout);
+  }
   render() {
     const { getFieldDecorator } = this.props.form;
+    let {plan} = this.props;
 
     const formItemLayout = {
       labelCol: {
@@ -58,6 +71,10 @@ class CardForm extends React.Component {
           span: 16,
           offset: 8,
         },
+        md: {
+          span: 16,
+          offset: 8,
+        }
       },
     };
 
@@ -124,7 +141,7 @@ class CardForm extends React.Component {
           )}
         </FormItem>
         <FormItem {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">Pay 5 USD</Button>
+          <Button loading={this.state.loading} size="large" type="primary" htmlType="submit">{`Pay $${plan.price} USD`}</Button>
         </FormItem>
       </Form>
     );
@@ -133,4 +150,8 @@ class CardForm extends React.Component {
 
 const WrappedCardForm = Form.create()(CardForm);
 
-export default WrappedCardForm
+export default connect((state) => {
+  return {
+    plan: state.checkout.plan
+  }
+})(WrappedCardForm)
