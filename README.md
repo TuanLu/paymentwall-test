@@ -1,2 +1,7 @@
-# paymentwall-test
-Simple App For Quick Test
+## Quick Overview
+
+`npm run install`
+
+ `npm run start`
+
+Then open http://localhost:3000/ to see the app.
