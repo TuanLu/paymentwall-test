@@ -36,7 +36,7 @@ class CardForm extends React.Component {
   }
 
   validateCardNumber = (rule, value, callback) => {
-    const form = this.props.form;
+    //const form = this.props.form;
     if (!valid_credit_card(value)) {
       callback('Card number is invalid!');
     } else {
@@ -149,7 +149,7 @@ class CardForm extends React.Component {
             block 
             loading={this.state.loading} 
             size="large" type="primary" 
-            htmlType="submit">{`Pay $${plan.price} USD`}</Button>
+            htmlType="submit">{`Pay ${plan.price} USD`}</Button>
         </FormItem>
       </Form>
     );

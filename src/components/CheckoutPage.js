@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import { Redirect } from "react-router-dom"
 import Header from "./CheckoutPage/Header"
 import AmountForm from "./CheckoutPage/AmountForm"
 import PaymentForm from "./CheckoutPage/PaymentForm"

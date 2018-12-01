@@ -1,15 +1,12 @@
 import React from "react"
-import { Route, Switch } from "react-router-dom"
 import CheckoutPage from "./CheckoutPage"
 
-const router = () => {
+const MainComponent = () => {
   return (
     <React.Fragment>
-      <Switch>
-        <Route path="/" exact component={CheckoutPage} />
-      </Switch>
+      <CheckoutPage/>
     </React.Fragment>
   );
 };
 
-export default router;
+export default MainComponent;
