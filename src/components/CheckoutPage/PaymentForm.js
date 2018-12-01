@@ -20,11 +20,6 @@ class PaymentForm extends Component {
             
           </Content>
           {paymentMethod !== "" ? 
-          // <Content style={{ padding: '0 50px', marginBottom: 20 }}>
-          //   <Card title="Credit Card">
-          //     <CardForm/>
-          //   </Card>
-          // </Content>
           <Drawer
             className="paymentwall-card-form"
             title="Credit Card"

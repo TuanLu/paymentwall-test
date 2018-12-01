@@ -3,7 +3,7 @@ import { Form, Input, Button, DatePicker } from 'antd';
 import {valid_credit_card} from 'Helper'
 import moment from 'moment'
 import {connect} from 'react-redux'
-import {toSuccessPage} from 'actions'
+import {updateStateData} from 'actions'
 
 const FormItem = Form.Item;
 const { MonthPicker } = DatePicker;
@@ -17,8 +17,11 @@ class CardForm extends React.Component {
     let {dispatch} = this.props;
     this.tempTimeout = setTimeout(() => {
       this.setState({loading: false});
-      //Dispatch to redirect to success page
-      dispatch(toSuccessPage());
+      //Dispatch to show success message
+      dispatch(updateStateData({
+        paymentMethod: "",
+        showSuccess: true
+      }))
     }, 2000);
   }
   handleSubmit = (e) => {

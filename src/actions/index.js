@@ -29,6 +29,7 @@ export const choosePaymentMethod = data => ({
   type: actionTypes.CHOOSE_PAYMENT_METHOD,
   data
 });
-export const toSuccessPage = () => ({
-  type: actionTypes.TO_SUCCESS_PAGE,
+export const showSuccessBox = (show) => ({
+  type: actionTypes.SHOW_SUCCESS_BOX,
+  show
 });

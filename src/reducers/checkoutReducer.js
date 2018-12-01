@@ -5,7 +5,8 @@ import {planData} from 'Helper'
 let _designDefault = {
     currentCountry: 'VN',
     plan: planData[1],
-    paymentMethod: ""
+    paymentMethod: "",
+    showSuccess: false
   },
   cloneState;
 
@@ -16,6 +17,13 @@ export default (state = _designDefault, action) => {
       cloneState = {
         ...cloneState,
         ...action.defaultProps
+      };
+      return cloneState;
+    case actionTypes.UPDATE_STATE_DATA:
+      cloneState = cloneDeep(state);
+      cloneState = {
+        ...cloneState,        
+        ...action.updateData
       };
       return cloneState;
     case actionTypes.CHOOSE_PLAN:
@@ -32,10 +40,10 @@ export default (state = _designDefault, action) => {
         paymentMethod: action.data
       };
       return cloneState;
-    case actionTypes.TO_SUCCESS_PAGE:
+    case actionTypes.SHOW_SUCCESS_BOX:
       return {
         ...state,
-        toSuccessPage: true
+        showSuccess: action.show
       };
 
     default:
