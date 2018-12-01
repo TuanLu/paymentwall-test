@@ -19,7 +19,15 @@ class PaymentMethods extends Component {
               <Card
                 type="inner"
                 className={paymentMethod === item.name ? "selected-payment card-payment" : "card-payment"}>
-                <img src={item.img_url}/>
+                  <div className="method-item" style={{
+                    backgroundImage: `url('${item.img_url}')`
+                  }}>
+                    {/* {item.name} */}
+                  </div>
+                {/* <img style={{
+                  //maxWidth: 100,
+                  //maxHeight: 100
+                }} src={item.img_url}/> */}
               </Card>
             </List.Item>
           )}

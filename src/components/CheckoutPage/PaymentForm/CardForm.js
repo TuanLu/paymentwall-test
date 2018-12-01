@@ -124,7 +124,7 @@ class CardForm extends React.Component {
               required: true, message: 'Please select exp date!',
             }],
           })(
-            <MonthPicker style={{width: '100%'}} size="large" disabledDate={this.disabledDate} />
+            <MonthPicker defaultPickerValue={moment('2019-01', 'YYYY-MM')} style={{width: '100%'}} size="large" disabledDate={this.disabledDate} />
           )}
         </FormItem>
         <FormItem
@@ -140,11 +140,16 @@ class CardForm extends React.Component {
               message: 'Please enter valid cvv number!',
             }],
           })(
-            <Input size="large" />
+            <Input placeholder="Enter CVV number" size="large" />
           )}
         </FormItem>
         <FormItem {...tailFormItemLayout}>
-          <Button block loading={this.state.loading} size="large" type="primary" htmlType="submit">{`Pay $${plan.price} USD`}</Button>
+          <Button 
+            style={{marginTop: 10}}
+            block 
+            loading={this.state.loading} 
+            size="large" type="primary" 
+            htmlType="submit">{`Pay $${plan.price} USD`}</Button>
         </FormItem>
       </Form>
     );

@@ -21,6 +21,7 @@ class PaymentForm extends Component {
           </Content>
           {paymentMethod !== "" ? 
           <Drawer
+            width={300}
             className="paymentwall-card-form"
             title="Credit Card"
             placement="right"
